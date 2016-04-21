@@ -14,22 +14,22 @@ class CsdnblogcrawlSpider(CrawlSpider):
 	allowed_domains = ['blog.csdn.net']
 	start_urls = ['http://blog.csdn.net/u012150179/article/details/11749017']
 
-	# rules = [
-		# Rule(LinkExtractor(allow='/u012150179/article/details',
-					# restrict_xpaths='//li[@class="next_article"]'),
-			# follow = True),
-			
-		# Rule(LinkExtractor(allow='/u012150179/article/details'),
-			# callback='parse_item',
-			# follow = False)
-	# ]
-	
 	rules = [
 		Rule(LinkExtractor(allow='/u012150179/article/details',
-					restrict_xpaths='//li[@class="next_article"]'), 
-		callback='parse_item', 
-		follow=True)
+					restrict_xpaths='//li[@class="next_article"]'),
+			follow = True),
+			
+		Rule(LinkExtractor(allow='/u012150179/article/details'),
+			callback='parse_item',
+			follow = False)
 	]
+	
+	#rules = [
+		#Rule(LinkExtractor(allow='/u012150179/article/details',
+					#restrict_xpaths='//li[@class="next_article"]'), 
+		#callback='parse_item', 
+		#follow=True)
+	#]
 
 	def parse_item(self, response):	
 		item = CsdnblogcrawlItem()
