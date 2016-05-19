@@ -52,7 +52,7 @@ class NISSENSpider(CrawlSpider):
             #items.append(Yamaxun)  
             #print 'parsed ' + str(Yamaxun)
         #return items  #item最后会传递给pipline处理
-        if(NextPage !=[]):  
+        if(NextPage !=[]):
             #print "YamaxunSpider----------------->nextlink:" ,'http://www.amazon.cn' + NextPage[0]
             req = Request(url='http://www.nissen.co.jp' + NextPage[0], callback=self.parse)
             yield req
